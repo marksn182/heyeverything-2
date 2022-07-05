@@ -14,7 +14,6 @@ export default function ProductItem({ product, addToCartHandler }) {
           />
         </a>
       </Link>
-
       <div className="flex flex-col items-center justify-center p-5">
         <Link href={`/product/${product.slug}`}>
           <a>
