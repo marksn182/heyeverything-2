@@ -18,6 +18,7 @@ export default function Layout({ title, children }) {
   useEffect(() => {
     setCartItemsCount(cart.cartItems.reduce((a, c) => a + c.quantity, 0));
   }, [cart.cartItems]);
+
   const logoutClickHandler = () => {
     Cookies.remove('cart');
     dispatch({ type: 'CART_RESET' });
@@ -72,6 +73,16 @@ export default function Layout({ title, children }) {
                         Order History
                       </DropdownLink>
                     </Menu.Item>
+                    {session.user.isAdmin && (
+                      <Menu.Item>
+                        <DropdownLink
+                          className="dropdown-link"
+                          href="/admin/dashboard"
+                        >
+                          Admin Dashboard
+                        </DropdownLink>
+                      </Menu.Item>
+                    )}
                     <Menu.Item>
                       <a
                         className="dropdown-link"
@@ -92,8 +103,8 @@ export default function Layout({ title, children }) {
           </nav>
         </header>
         <main className="container m-auto mt-4 px-4">{children}</main>
-        <footer className="flex h-10 justify-center items-center shadow-inner ">
-          <p>Copyright © 2022 Hey Everything </p>
+        <footer className="flex h-10 justify-center items-center shadow-inner">
+          <p>Copyright © 2022 Hey Everything</p>
         </footer>
       </div>
     </>

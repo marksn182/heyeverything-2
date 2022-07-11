@@ -13,10 +13,10 @@ export default function ProductScreen(props) {
   const { product } = props;
   const { state, dispatch } = useContext(Store);
   const router = useRouter();
-
   if (!product) {
-    return <Layout title="Produt Not Found">Product Not Found</Layout>;
+    return <Layout title="Produt Not Found">Produt Not Found</Layout>;
   }
+
   const addToCartHandler = async () => {
     const existItem = state.cart.cartItems.find((x) => x.slug === product.slug);
     const quantity = existItem ? existItem.quantity + 1 : 1;
@@ -80,6 +80,7 @@ export default function ProductScreen(props) {
     </Layout>
   );
 }
+
 export async function getServerSideProps(context) {
   const { params } = context;
   const { slug } = params;

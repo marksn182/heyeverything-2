@@ -10,7 +10,7 @@ export default function ProductItem({ product, addToCartHandler }) {
           <img
             src={product.image}
             alt={product.name}
-            className="rounded shadow"
+            className="rounded shadow object-cover h-64 w-full"
           />
         </a>
       </Link>
@@ -27,7 +27,7 @@ export default function ProductItem({ product, addToCartHandler }) {
           type="button"
           onClick={() => addToCartHandler(product)}
         >
-          Add to Cart
+          Add to cart
         </button>
       </div>
     </div>
